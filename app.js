@@ -18,31 +18,47 @@ function startApp() {
         type: "list",
         message: "Select what type of employee you would like to add",
         name: "userchoice",
-        choices: ["add manager", "add engineer", "add intern", "build team"],
+        choices: ["manager", "engineer", "intern", "build team"],
       },
     ])
     .then(function (response) {
-      if (response.userchoice === "add manager") {
-        addManager();
-        // console.log("if manager is triggered");
-        // addEngineer();
-      }
-       else if (response.userchoice === "add engineer") {
-        // console.log("if engineer is triggered");
-        // addManager();
-      }
-      else (response.userchoice === "add intern") {
-        console.log("if intern is triggered");
-        // addIntern();
-      // } else {
-      //   console.log("else is triggered");
-        // buildTeam();
+      if (response.userchoice === "manager") {
+        return renderManager();
+      } else if (response.userchoice === "engineer") {
+        return renderEngineer();
+      } else if (response.userchoice === "intern") {
+        // console.log("if intern is triggered");
+        return renderIntern();
       }
     });
 }
-startApp();
 
-function addEngineer() {
+function renderManager() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "input",
+      message: "What is your id?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What is your office number?",
+      name: "officeNumber",
+    },
+  ]);
+}
+
+function renderEngineer() {
   inquirer.prompt([
     {
       type: "input",
@@ -66,6 +82,33 @@ function addEngineer() {
     },
   ]);
 }
+
+function renderIntern() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "input",
+      message: "What is your id?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "Where did you earn your undergraduate degree from?",
+      name: "school",
+    },
+  ]);
+}
+
+startApp();
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
