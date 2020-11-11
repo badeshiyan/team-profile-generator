@@ -9,7 +9,9 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+// global variable declaration
 
+const employees = [];
 // prompt to initiate employee app
 function startApp() {
   inquirer
@@ -29,83 +31,119 @@ function startApp() {
       } else if (response.userchoice === "intern") {
         // console.log("if intern is triggered");
         return renderIntern();
+      } else if (response.userchoice === "build team") {
+        const htmlstring = render(employees);
+        fs.writeFileSync(outputPath, htmlstring);
       }
     });
 }
 
 function renderManager() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "input",
-      message: "What is your id?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "What is your office number?",
-      name: "officeNumber",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber",
+      },
+    ])
+    .then(function (answers) {
+      const manager = new Manager(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.officeNumber
+      );
+      employees.push(manager);
+      startApp();
+    });
 }
 
 function renderEngineer() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "input",
-      message: "What is your id?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "What is your Github?",
-      name: "github",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your Github?",
+        name: "github",
+      },
+    ])
+    .then(function (answers) {
+      const engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.github
+      );
+      employees.push(engineer);
+      startApp();
+    });
 }
 
 function renderIntern() {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "What is your name?",
-      name: "name",
-    },
-    {
-      type: "input",
-      message: "What is your id?",
-      name: "id",
-    },
-    {
-      type: "input",
-      message: "What is your email?",
-      name: "email",
-    },
-    {
-      type: "input",
-      message: "Where did you earn your undergraduate degree from?",
-      name: "school",
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "Where did you earn your undergraduate degree from?",
+        name: "school",
+      },
+    ])
+    .then(function (answers) {
+      const intern = new Intern(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school
+      );
+      employees.push(intern);
+      startApp();
+    });
 }
 
 startApp();
