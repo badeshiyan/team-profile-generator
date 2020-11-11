@@ -15,7 +15,7 @@ function startApp() {
     .prompt([
       {
         type: "list",
-        message: "What would you like to do next?",
+        message: "Select what type of employee you would like to add",
         name: "userchoice",
         choices: ["add engineer", "add manager", "add intern", "build team"],
       },
@@ -40,8 +40,23 @@ function addEngineer() {
   inquirer.prompt([
     {
       type: "input",
-      message: "What is the title of your project?",
-      name: "title",
+      message: "What is your name?",
+      name: "name",
+    },
+    {
+      type: "input",
+      message: "What is your id?",
+      name: "id",
+    },
+    {
+      type: "input",
+      message: "What is your email?",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What is your Github?",
+      name: "github",
     },
   ]);
 }
