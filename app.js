@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// prompt to initiate employee app
 function startApp() {
   inquirer
     .prompt([
@@ -17,20 +18,25 @@ function startApp() {
         type: "list",
         message: "Select what type of employee you would like to add",
         name: "userchoice",
-        choices: ["add engineer", "add manager", "add intern", "build team"],
+        choices: ["add manager", "add engineer", "add intern", "build team"],
       },
     ])
     .then(function (response) {
-      if (response.userchoice === "add engineer") {
-        addEngineer();
-      }
       if (response.userchoice === "add manager") {
         addManager();
+        // console.log("if manager is triggered");
+        // addEngineer();
       }
-      if (response.userchoice === "add intern") {
-        addIntern();
-      } else {
-        buildTeam();
+       else if (response.userchoice === "add engineer") {
+        // console.log("if engineer is triggered");
+        // addManager();
+      }
+      else (response.userchoice === "add intern") {
+        console.log("if intern is triggered");
+        // addIntern();
+      // } else {
+      //   console.log("else is triggered");
+        // buildTeam();
       }
     });
 }
