@@ -1,3 +1,4 @@
+// code provided; appears to call the constructors, uses path and fs, provides folder and file
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -9,9 +10,10 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-// global variable declaration
 
+// global variable declaration
 const employees = [];
+
 // prompt to initiate employee app
 function startApp() {
   inquirer
@@ -23,6 +25,7 @@ function startApp() {
         choices: ["manager", "engineer", "intern", "build team"],
       },
     ])
+    // writing file based on submitted answers
     .then(function (response) {
       if (response.userchoice === "manager") {
         return renderManager();
@@ -37,7 +40,7 @@ function startApp() {
       }
     });
 }
-
+// manager specific questions and info
 function renderManager() {
   inquirer
     .prompt([
@@ -62,6 +65,7 @@ function renderManager() {
         name: "officeNumber",
       },
     ])
+    // pushing manager answers to constructor
     .then(function (answers) {
       const manager = new Manager(
         answers.name,
@@ -74,6 +78,7 @@ function renderManager() {
     });
 }
 
+// engineer specific questions and info
 function renderEngineer() {
   inquirer
     .prompt([
@@ -98,6 +103,7 @@ function renderEngineer() {
         name: "github",
       },
     ])
+    // pushing engineer answers to constructor
     .then(function (answers) {
       const engineer = new Engineer(
         answers.name,
@@ -110,6 +116,7 @@ function renderEngineer() {
     });
 }
 
+// intern specific questions and info
 function renderIntern() {
   inquirer
     .prompt([
@@ -134,6 +141,7 @@ function renderIntern() {
         name: "school",
       },
     ])
+    // pushing intern answers to constructor
     .then(function (answers) {
       const intern = new Intern(
         answers.name,
