@@ -1,12 +1,14 @@
-# team-profile-generator
-
-## readme-generator
+## team-profile-generator
 
 ## Overview:
 
-From the very beginning of our current bootcamp journey, it was made clear that the cornerstone of a good coding project is an effective, high-quality readme file. The readme serves as a formal introduction to the project, explaining the details of the project to the user. Typically, a readme contains sections that include, but are not limited to a title, description, screenshots and/or video sample of the deployed application, table of contents, installation, usage information, contributors and testing.
+This assignment involves the continued use of node.js.
 
-This project was created to show a developer can easily create a command-line application that dynamically generates a professional readme from the developer's input. This application was created using Node.js and javascript. Please find additional information regarding this project below. Thank you.
+For this assignment, you will find the steps needed and, ultimately, the creation of a software engineering team generator through command line efforts. The application prompts the user to enter specific information relevant to each team member (manager, engineer and intern). Upon completion of the submitted team member information, the team profile is then built, and the application creates an HTML file that displays the team roster which includes said information provided by the user.
+
+The unit covered for this assignment also included the use of unit testing. For this assignment, unit tests were also performed and all passed. We have now learned that this is a requirement and essential for an effectively ran application. Please see the test results screenshot below for more information regarding this aspect of the project.
+
+For more information regarding the aforementioned application, please see below. Thank you.
 
 ## Video of Application User Flow
 
