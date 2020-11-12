@@ -14,10 +14,12 @@ This project was created to show a developer can easily create a command-line ap
 
 ## Screenshots of Source Code
 
-![Adeshiyan Team Profile Generator](./assets/readmesnapshot1.png)
-![Adeshiyan Team Profile Generator](./assets/readmesnapshot2.png)
+![Adeshiyan Team Profile Generator](./assets/teamgen1.png)
+![Adeshiyan Team Profile Generator](./assets/teamgen2.png)
+![Adeshiyan Team Profile Generator](./assets/teamgen3.png)
+![Adeshiyan Team Profile Generator](./assets/teamgen4.png)
 
-## Screenshot of Tests Results
+## Screenshot of Application Test Results
 
 ![Adeshiyan Team Profile Generator](./assets/testresults.png)
 
