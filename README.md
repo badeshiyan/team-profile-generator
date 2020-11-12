@@ -12,7 +12,7 @@ For more information regarding the aforementioned application, please see below.
 
 ## Video of Application User Flow
 
-![Adeshiyan Team Profile Generator Video](./assets/samplevideo.gif)
+![Adeshiyan Team Profile Generator Video](./assets/teamgenvid.gif)
 
 ## Screenshots of Source Code
 
